@@ -24,3 +24,5 @@
 - heroku test: https://boodah96-basicauth.herokuapp.com/ 
 - ##  UML diagram:
 ![uml](./lab7.PNG)
+## tests
+![test](./lab7tests.PNG)
