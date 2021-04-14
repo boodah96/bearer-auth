@@ -16,7 +16,7 @@ users.virtual('token').get(function() {
     let tokenObject = {
         username: this.username,
     }
-    return jwt.sign(tokenObject, process.env.SECRET || 'abd');
+    return jwt.sign(tokenObject, process.env.SECRET);
 });
 
 users.pre('save', async function() {
@@ -55,7 +55,7 @@ users.statics.authenticateBasic = async function(username, password) {
 users.statics.authenticateWithToken = async function(token) {
     try {
 
-        const parsedToken = jwt.verify(token, process.env.SECRET || 'abd');
+        const parsedToken = jwt.verify(token, process.env.SECRET);
         const user = await this.findOne({ username: parsedToken.username })
         if (user) { return user; }
         throw new Error("User Not Found");
